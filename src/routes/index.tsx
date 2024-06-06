@@ -4,10 +4,9 @@ import { AppRouter } from "./app.routes";
 import { useAuth } from "../hooks/useAuth";
 
 export function AppRoutes() {
-  const { authUserID } = useAuth()
-  const isAuth = authUserID; // type conversion
-  const routes = isAuth ? <AppRouter/> : <AuthRouter/>
+  const { authUserID } = useAuth();
+  const isAuth = !!authUserID; // type conversion
+  const routes = isAuth ? <AppRouter /> : <AuthRouter />;
   // type cohesion
-  return <BrowserRouter>{routes}</BrowserRouter>
+  return <BrowserRouter>{routes}</BrowserRouter>;
 }
-
