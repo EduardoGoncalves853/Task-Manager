@@ -3,7 +3,6 @@ import { Header } from "../../components/Header";
 import { SideBar } from "../../components/SideBar";
 import { Container } from "./styles";
 import { Footer } from "../../components/Footer";
-
 export function App() {
 
   return (
