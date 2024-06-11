@@ -40,7 +40,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
       })
       .catch((error) => {
         if (error.response) {
-          alert(error.response.data.message);
+          alert(error.response.message);
         } else {
           alert("Um erro inesperado no login!");
         }
