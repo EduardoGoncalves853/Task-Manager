@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { useQueryUser } from "../../hooks/useQuery";
+import { useQueryUser } from "../../hooks/useQueryUser";
 import { Container } from "./styles";
 import { StatsCard } from "../../components/StatsCard";
 
