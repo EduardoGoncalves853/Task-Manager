@@ -10,9 +10,22 @@ export const Container = styled.div`
   text-align: justify;
 
   &::-webkit-scrollbar {
-    width: 0;
-    -ms-overflow-style: none;
-  }
+      width: 0.5rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: ${({ theme }) => theme.colors.DARK200};
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: ${({ theme }) => theme.colors.LIGHT200}88;
+      border-radius: 0.8rem;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: ${({ theme }) => theme.colors.LIGHT400}88;
+    }
+
 
   article {
     background: none;
