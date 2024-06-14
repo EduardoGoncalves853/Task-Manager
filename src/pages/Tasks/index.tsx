@@ -1,21 +1,21 @@
 import { useState } from "react";
-import { Container } from "./styles";
-import { TaskCard, TaskDataTypes } from "../../components/TaskCard";
 import { Pagination } from "../../components/Pagination";
+import { TaskCard, TaskDataTypes } from "../../components/TaskCard";
 import { useQueryTasks } from "../../hooks/useQueryTasks";
+import { Container } from "./styles";
 import { ModalTaskDetails } from "../../components/ModalTaskDetails";
 
 export function Tasks() {
-  const [showModal, setShowModal] = useState(false)
-  const  [taskDetails, setTaskDetails] = useState({} as TaskDataTypes)
+  const [showModal, setShowModal] = useState(false);
+  const [taskDetails, setTaskDetails] = useState({} as TaskDataTypes);
 
-  function toggleModal(){
+  function toggleModal() {
     setShowModal((prevValue) => (prevValue == true ? false : true));
   }
 
-  function addTaskDetails(task: TaskDataTypes){
-    setTaskDetails(task)
-    toggleModal()
+  function addTaskDetails(task: TaskDataTypes) {
+    setTaskDetails(task);
+    toggleModal();
   }
 
   const {
@@ -59,7 +59,9 @@ export function Tasks() {
           <p className="loading">Sem tarefas para mostrar</p>
         ) : (
           data?.map((task) => {
-            return <TaskCard data={task} key={task.id} onClick={() => addTaskDetails(task)} />;
+            return (
+              <TaskCard data={task} key={task.id} onClick={() => addTaskDetails(task)} />
+            );
           })
         )}
       </div>
@@ -74,6 +76,7 @@ export function Tasks() {
           totalPages={totalPages}
         />
       </div>
+
       {showModal && <ModalTaskDetails task={taskDetails} toggleModal={toggleModal} />}
     </Container>
   );

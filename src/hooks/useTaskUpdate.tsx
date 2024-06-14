@@ -2,10 +2,9 @@ import { useMutation } from "@tanstack/react-query";
 import { TaskDataTypes } from "../components/TaskCard";
 import { API } from "../configs/api";
 
-async function updateTask(task:TaskDataTypes) {
-  const {title, description, date,  status} = task
-  return await API.put("/task", {title, description, date, status});
-
+async function updateTask(task: TaskDataTypes) {
+  const { id, title, description, date, status } = task;
+  return await API.put(`/task/${id}`, { title, description, date, status });
 }
 
 export function useTaskUpdate() {
@@ -13,15 +12,13 @@ export function useTaskUpdate() {
     mutationFn: updateTask,
     onSuccess: (res) => {
       if (res.status == 200) {
-        alert("Tarefaz atualizada com sucesso!")
-
+        alert("Tarefa atualizada com sucesso!");
       }
     },
     onError: (error) => {
       console.error(error);
-      alert("Erro ao atualizar tarefa!")
-     
-    }
+      alert("Erro ao atualizar tarefa!");
+    },
   });
-  return mutate
+  return mutate;
 }

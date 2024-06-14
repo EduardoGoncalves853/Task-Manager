@@ -10,6 +10,7 @@ export function Home() {
   return (
     <Container>
       <h2>Tarefas</h2>
+
       <div className="statsContainer">
         <NavLink to={"/tasks?filter=completed&page=1"}>
           <StatsCard
@@ -31,22 +32,18 @@ export function Home() {
           />
         </NavLink>
 
-        <NavLink to={"/tasks?filter=latel&page=1"}>
+        <NavLink to={"/tasks?filter=late&page=1"}>
           <StatsCard
             title="Atrasadas"
-            icon="query_stats"
+            icon="event_busy"
             variant="late"
             number={data?.tasksInfo.late}
             total={data?.tasksInfo.total}
           />
         </NavLink>
 
-        <NavLink to={"/task?filter=all&page=1"}>
-          <StatsCard
-            title="Total"
-            icon="query_stats"
-            number={data?.tasksInfo.total}
-          />
+        <NavLink to={"/tasks?filter=all&page=1"}>
+          <StatsCard title="Total" icon="query_stats" number={data?.tasksInfo.total} />
         </NavLink>
       </div>
     </Container>

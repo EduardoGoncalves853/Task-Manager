@@ -3,21 +3,20 @@ import { Header } from "../../components/Header";
 import { SideBar } from "../../components/SideBar";
 import { Container } from "./styles";
 import { Footer } from "../../components/Footer";
-export function App() {
 
+export function App() {
   return (
     <Container>
       <Header />
 
       <article>
         <section className="sideBar">
-          <SideBar/>
+          <SideBar />
         </section>
-        
-        <Outlet/> {/* main */}
+        <Outlet /> {/* main */}
       </article>
 
-      <Footer/>
+      <Footer />
     </Container>
   );
 }

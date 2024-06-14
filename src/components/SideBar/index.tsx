@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { MenuItem } from "../MenuItem";
 import { Container } from "./styles";
+import { MenuItem } from "../MenuItem";
 import { useAuth } from "../../hooks/useAuth";
 
 type SideBarTypes = {
@@ -9,16 +9,22 @@ type SideBarTypes = {
 
 export function SideBar({ toggleSideBar }: SideBarTypes) {
   const { signOut } = useAuth();
-  const navigate = useNavigate()
-  
-    function logoutApp() {
-      const resp = confirm("Deseja sair da aplicação");
-  
-      if(resp) {
-        signOut();
-        navigate("/")
-      }
+  const navigate = useNavigate();
+
+  function logoutApp() {
+    const resp = confirm("Deseja sair da aplicação?");
+
+    if (resp) {
+      signOut();
+      navigate("/");
     }
+  }
+
+  function handlekeyup(event: React.KeyboardEvent<HTMLDivElement>) {
+    if (event.key == "Enter") {
+      logoutApp();
+    }
+  }
 
   return (
     <Container onClick={toggleSideBar}>
@@ -37,16 +43,16 @@ export function SideBar({ toggleSideBar }: SideBarTypes) {
               <MenuItem title="Tarefa" icon="task" />
             </NavLink>
 
-            <NavLink to={"/create-tasks"}>
+            <NavLink to={"/create-tasks"} onClick={toggleSideBar}>
               <MenuItem title="Adicionar" icon="add_circle" />
             </NavLink>
 
-            <NavLink to={"/about"}>
+            <NavLink to={"/about"} onClick={toggleSideBar}>
               <MenuItem title="Sobre" icon="info" />
             </NavLink>
-            <div onClick={logoutApp}>
-            <MenuItem title="Sair" icon="exit_to_app" />
 
+            <div onClick={logoutApp} tabIndex={0} onKeyUp={handlekeyup}>
+              <MenuItem title="Sair" icon="exit_to_app" />
             </div>
           </ul>
         </nav>

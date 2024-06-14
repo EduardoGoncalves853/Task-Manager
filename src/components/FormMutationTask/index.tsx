@@ -14,14 +14,16 @@ type Inputs = TaskDataTypes & { time: string };
 type PropsToForm = {
   isUpdate?: boolean;
   toggleModal?: () => void;
-  taskData?: TaskDataTypes
-};   
+  taskData?: TaskDataTypes;
+};
 
-export function FormMutationTask({ 
+export function FormMutationTask({
   isUpdate = false,
   toggleModal,
-  taskData }: PropsToForm) {
-  const [isLoading, setIsLoading] = useState(false)
+  taskData,
+}: PropsToForm) {
+  const [isLoading, setIsLoading] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -40,26 +42,27 @@ export function FormMutationTask({
       const resp = confirm("Deseja remover tarefa?");
 
       if (resp) {
+        setIsLoading(true);
         await API.delete(`task/${taskData?.id}`)
           .then(() => {
-            alert("Tarefa deletada com sucesso!")
+            alert("Tarefa deletada com sucesso!");
+            toggleModal();
+            refetch();
           })
           .catch((error) => {
             console.error(error);
-            alert("Erro ao tentar deletar tarefa")
+            alert("Erro ao tentar deletar tarefa!");
           })
           .finally(() => {
-            setIsLoading(false)
-          })
-        }
+            setIsLoading(false);
+          });
       }
-    } 
-    
-    function updateDate3HoursAgo(date: Date){
-      return new Date(new Date(date).getTime() - 1000 * 60 * 60 * 3)
     }
+  }
 
-
+  function updateDate3HoursAgo(date: Date) {
+    return new Date(new Date(date).getTime() - 1000 * 60 * 60 * 3);
+  }
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const { title, description, date, time, status } = data;
@@ -107,9 +110,9 @@ export function FormMutationTask({
         date: taskData.date ? new Date(taskData.date).toISOString().split("T")[0] : "",
         time: taskData.date
           ? updateDate3HoursAgo(new Date(taskData.date))
-            .toISOString()
-            .split("T")[1]
-            .slice(0, 5)
+              .toISOString()
+              .split("T")[1]
+              .slice(0, 5)
           : "",
         status: taskData.status || "pending",
       });

@@ -18,10 +18,10 @@ export function FormLogin() {
     reset,
   } = useForm<InputTypes>();
 
-  const { signIn, isLoading } = useAuth()
+  const { signIn, isLoading } = useAuth();
 
   const onSubmit: SubmitHandler<InputTypes> = async ({ email, password }) => {
-    const userLogged = await signIn({email, password})
+    const userLogged = await signIn({ email, password });
     if (userLogged) reset();
   };
 

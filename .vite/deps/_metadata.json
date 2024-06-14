@@ -1,0 +1,67 @@
+{
+  "hash": "6f58a952",
+  "configHash": "22c74ef9",
+  "lockfileHash": "5535f5c8",
+  "browserHash": "d7c8675a",
+  "optimized": {
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "e54f66a1",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "c1af9136",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "f0ccf9a9",
+      "needsInterop": true
+    },
+    "styled-components": {
+      "src": "../../node_modules/styled-components/dist/styled-components.browser.esm.js",
+      "file": "styled-components.js",
+      "fileHash": "d9e24c4c",
+      "needsInterop": false
+    },
+    "@tanstack/react-query": {
+      "src": "../../node_modules/@tanstack/react-query/build/modern/index.js",
+      "file": "@tanstack_react-query.js",
+      "fileHash": "c4d47115",
+      "needsInterop": false
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "682c0b39",
+      "needsInterop": false
+    },
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "358116ef",
+      "needsInterop": false
+    },
+    "react-hook-form": {
+      "src": "../../node_modules/react-hook-form/dist/index.esm.mjs",
+      "file": "react-hook-form.js",
+      "fileHash": "f91196fc",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-DUQ7VHKJ": {
+      "file": "chunk-DUQ7VHKJ.js"
+    },
+    "chunk-BTNJN4YD": {
+      "file": "chunk-BTNJN4YD.js"
+    },
+    "chunk-HL2QZUHZ": {
+      "file": "chunk-HL2QZUHZ.js"
+    }
+  }
+}

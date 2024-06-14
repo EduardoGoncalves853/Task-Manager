@@ -11,11 +11,17 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <AuthProvider>
       <QueryClientProvider client={new QueryClient()}>
-      <ThemeProvider theme={appTheme}>
-        <AppRoutes />
-        <GlobalStyles />
-      </ThemeProvider>
+        <ThemeProvider theme={appTheme}>
+          <AppRoutes />
+          <GlobalStyles />
+        </ThemeProvider>
       </QueryClientProvider>
     </AuthProvider>
   </React.StrictMode>
 );
+
+<main>
+  <section></section>
+  <section></section>
+  <section></section>
+</main>;
